@@ -1,23 +1,19 @@
 <!doctype html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WSMudEX · 墨境</title><link rel="stylesheet" href="../appearance/popup.css"></head>
+<html lang="zh-CN" data-wxm-ink="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WSMudEX · 设置</title><link rel="stylesheet" href="../appearance/palette.css"><link rel="stylesheet" href="../appearance/popup.css"></head>
 <body>
-  <header><div class="seal" aria-hidden="true">墨</div><div><h1>WSMudEX · 墨境</h1><p>游戏功能与墨境外观，合为一体。</p></div><label class="switch" title="启用界面美化"><input id="enabled" type="checkbox" aria-label="启用界面美化"><span></span></label></header>
+  <header><div><h1>WSMudEX</h1><p>界面设置</p></div><label class="switch" title="启用界面主题"><input id="enabled" type="checkbox" aria-label="启用界面主题"><span></span></label></header>
   <main>
-    <section class="core-card" aria-label="WSMudEX 功能"><div class="row"><strong>WSMudEX 功能</strong><label class="switch"><input id="toggleSwitch" type="checkbox" aria-label="启用 WSMudEX 功能"><span></span></label></div><p id="coreStatus" role="status">正在读取…</p><p class="font-help">功能开关变更后请刷新游戏。页眉开关仅控制墨境外观。</p><div class="data-actions"><button id="exportBtn" type="button">导出游戏配置</button><button id="importBtn" type="button">导入游戏配置</button><input id="importInput" type="file" accept=".json" hidden></div></section>
-    <fieldset><legend>江湖底色 <small>APPEARANCE</small></legend><div class="themes">
-      <label class="theme ink"><input type="radio" name="theme" value="ink"><span class="swatch"><i></i><i></i><i></i></span><strong>墨金</strong><small>静夜 · 暖金</small></label>
-      <label class="theme bamboo"><input type="radio" name="theme" value="bamboo"><span class="swatch"><i></i><i></i><i></i></span><strong>青竹</strong><small>山林 · 碧色</small></label>
-      <label class="theme blue"><input type="radio" name="theme" value="blue"><span class="swatch"><i></i><i></i><i></i></span><strong>霁蓝</strong><small>月下 · 清寒</small></label>
-    </div></fieldset>
+    <section class="core-card" aria-label="WSMudEX 功能"><div class="row"><strong>WSMudEX 功能</strong><label class="switch"><input id="toggleSwitch" type="checkbox" aria-label="启用 WSMudEX 功能"><span></span></label></div><p id="coreStatus" role="status">正在读取…</p><p class="font-help">功能开关变更后请刷新游戏。页眉开关仅控制界面主题。</p><div class="data-actions"><button id="exportBtn" type="button">导出游戏配置</button><button id="importBtn" type="button">导入游戏配置</button><input id="importInput" type="file" accept=".json" hidden></div></section>
+    <fieldset><legend>颜色主题</legend><div class="themes"><label class="theme dark"><input type="radio" name="theme" value="dark"><span class="swatch" aria-hidden="true"></span><strong>深色</strong></label><label class="theme light"><input type="radio" name="theme" value="light"><span class="swatch" aria-hidden="true"></span><strong>浅色</strong></label><label class="theme hc-dark"><input type="radio" name="theme" value="hc-dark"><span class="swatch" aria-hidden="true"></span><strong>高对比度深色</strong></label><label class="theme hc-light"><input type="radio" name="theme" value="hc-light"><span class="swatch" aria-hidden="true"></span><strong>高对比度浅色</strong></label></div></fieldset>
     <div class="row setting"><label for="fontFamily">游戏字体</label><select id="fontFamily"><option value="system">默认字体</option><option value="yahei">微软雅黑</option><option value="song">宋体</option><option value="kai">楷体</option><option value="sourcehan">思源黑体</option><option value="wenkai">霞鹜文楷</option><option value="custom">自定义字体…</option></select></div>
     <div id="customFontRow" hidden><label for="customFont">已安装字体的名称</label><div class="font-entry"><input id="customFont" type="text" maxlength="100" placeholder="例如：LXGW WenKai" autocomplete="off" spellcheck="false" aria-describedby="fontHelp"><button id="applyFont" type="button">应用</button></div><small>输入后按 Enter，或点击“应用”保存。</small></div>
     <p id="fontHelp" class="font-help">使用电脑已安装的字体；缺失时自动回退。新字体安装后请刷新游戏。</p>
     <div class="row setting"><label for="commandFont">命令回显字体</label><select id="commandFont"><option value="consolas">Consolas</option><option value="jetbrains">JetBrains Mono</option><option value="cascadia">Cascadia Mono</option><option value="inherit">跟随正文</option></select></div>
-    <div class="font-preview"><span>字体预览</span><p id="fontSample">未雨 · 一剑霜寒，江湖未远。<br>气血 2343285 / 2582765</p><p id="commandSample">18:33:02 state info</p></div>
+    <div class="font-preview"><span>字体预览</span><p id="fontSample">正文预览：江湖未远，来日方长。<br>气血 2343285 / 2582765</p><p id="commandSample">18:33:02 state info</p></div>
     <div class="row"><label for="fontSize">阅读字号</label><output id="fontValue" for="fontSize"></output></div><input id="fontSize" type="range" min="14" max="19" step="1">
     <div class="row setting"><label for="density">文字间距</label><select id="density"><option value="comfortable">舒适</option><option value="compact">紧凑</option></select></div>
-    <label class="row setting"><span>柔和文字配色<small class="sub">保留紫、橙等境界色系</small></span><input id="colors" type="checkbox"></label>
+    <label class="row setting"><span>文字颜色随主题适配<small class="sub">保留紫、橙等境界色系</small></span><input id="colors" type="checkbox"></label>
     <p class="note">侧栏宽度、面板位置由 WSMudEX 原有拖动功能控制。请停用旧版墨境及另一份 WSMudEX，避免重复运行。</p>
   </main>
   <footer><button id="reset" type="button">恢复默认</button><span id="status" role="status" aria-live="polite">正在读取设置…</span></footer>

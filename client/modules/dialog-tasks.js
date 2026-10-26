@@ -27,6 +27,82 @@
       }
 
       const tasks = {
+        claimableItems: function () {
+          const seen = new Set();
+          return (this.items || []).filter(item => {
+            const id = String(item.id);
+            if (Number(item.state) !== 2 || !/^[A-Za-z0-9_.:-]+$/.test(id) || seen.has(id)) return false;
+            seen.add(id);
+            return true;
+          });
+        },
+        renderClaimControls: function () {
+          if (!this.element) return;
+          let bar = this.element.find('.task-claim-toolbar');
+          if (!bar.length) {
+            bar = $('<div class="task-claim-toolbar"><button type="button" class="task-claim-all">一键收取</button><button type="button" class="task-claim-stop" hidden>停止</button><span class="task-claim-status" role="status" aria-live="polite"></span></div>');
+            bar.find('.task-claim-all').on('click', () => this.startClaimAll());
+            bar.find('.task-claim-stop').on('click', () => this.cancelClaimAll('已停止，未发送的任务不会领取'));
+            bar.prependTo(this.element);
+          }
+          const count = this.claimableItems().length;
+          const run = this.claimRun;
+          bar.find('.task-claim-all').prop('disabled', !!run || !count)
+            .text(run ? '收取中…' : '一键收取' + (count ? ' (' + count + ')' : ''));
+          bar.find('.task-claim-stop').prop('hidden', !run);
+          bar.find('.task-claim-status').text(run ? '已收取 ' + run.done + '/' + run.total :
+            this.claimMessage || (count ? count + ' 项奖励可领取' : '暂无可领取奖励'));
+        },
+        cancelClaimAll: function (message) {
+          if (this.claimRun) clearTimeout(this.claimRun.timer);
+          this.claimRun = null;
+          this.claimMessage = message || '';
+          this.renderClaimControls();
+        },
+        startClaimAll: function () {
+          if (this.claimRun || !this.isShow) return;
+          const queue = this.claimableItems().map(item => String(item.id));
+          if (!queue.length) return;
+          this.claimMessage = '';
+          this.claimRun = { queue, total: queue.length, done: 0, pending: null, timer: null, roleId: getRoleId() };
+          this.sendNextClaim();
+        },
+        sendNextClaim: function () {
+          const run = this.claimRun;
+          if (!run) return;
+          if (!this.isShow || getRoleId() !== run.roleId) {
+            this.cancelClaimAll('收取已停止');
+            return;
+          }
+          let id;
+          while (run.queue.length) {
+            const candidate = run.queue.shift();
+            if (this.claimableItems().some(item => String(item.id) === candidate)) { id = candidate; break; }
+          }
+          if (!id) {
+            this.cancelClaimAll('本次已收取 ' + run.done + ' 项奖励');
+            return;
+          }
+          run.pending = id;
+          this.renderClaimControls();
+          run.timer = setTimeout(() => {
+            if (this.claimRun === run) this.cancelClaimAll('等待服务器确认超时，已暂停；请刷新任务列表后重试');
+          }, 8000);
+          try { SendCommand('task ' + id + ' fin'); }
+          catch (_) { this.cancelClaimAll('领取发送失败，已停止；请检查连接'); }
+        },
+        checkClaimProgress: function () {
+          const run = this.claimRun;
+          if (!run) return;
+          if (!this.isShow || getRoleId() !== run.roleId) { this.cancelClaimAll('收取已停止'); return; }
+          if (!run.pending || this.claimableItems().some(item => String(item.id) === run.pending)) return;
+          clearTimeout(run.timer);
+          run.pending = null;
+          run.done++;
+          this.renderClaimControls();
+          // A short gap after acknowledgement avoids bursts and lets Stop respond.
+          run.timer = setTimeout(() => { if (this.claimRun === run) this.sendNextClaim(); }, 300);
+        },
         dailyStatus: null,
         dailyStatusDay: function () {
           // 游戏日从北京时间 05:00 起算。
@@ -173,6 +249,7 @@
           SendCommand("info");
         },
         close: function () {
+          this.cancelClaimAll();
           this.cancelDailyStatus();
           if (this.dailyStatusObserver) this.dailyStatusObserver.disconnect();
           this.dailyStatusObserver = null;
@@ -256,6 +333,8 @@
           if (dailyPanel.length && typeof dailyPanel.detach === "function") dailyPanel.prependTo(this.element);
           this.renderDailyStatus();
           Dialog.footer("");
+          this.renderClaimControls();
+          this.checkClaimProgress();
         },
       };
 

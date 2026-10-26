@@ -8,6 +8,7 @@
   let update = 0;
   function render(raw) {
     const s = normalize(raw);
+    document.documentElement.setAttribute("data-wxm-ink",s.theme);
     for (const id of controls) {
       if (typeof s[id] === 'boolean') byId(id).checked = s[id];
       else byId(id).value = s[id];

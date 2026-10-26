@@ -2600,3 +2600,10 @@ white-space: pre-line;
     color: gray;
     font-size: 0.85em;
 }
+
+/* Available with or without the optional appearance layer. */
+.dialog-tasks>.task-claim-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:8px; border-bottom:1px solid currentColor; }
+.task-claim-toolbar>button { font:inherit; padding:4px 10px; cursor:pointer; }
+.task-claim-toolbar>button:disabled { cursor:default; }
+.task-claim-toolbar>[hidden] { display:none; }
+.task-claim-status { font-size:.85em; }

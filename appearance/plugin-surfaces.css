@@ -1,0 +1,168 @@
+/* Neutral surface overrides for WSMudEX panels. Keep state colours, geometry and visibility. */
+html[data-wxm-ink] .item-commands>.WG_trigger_card{border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .WG_trigger_card>button{border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .room-commands>.act-item.WG_native_auto_active{box-shadow:none!important;text-shadow:none!important;}
+html[data-wxm-ink]:not(.WG_feature_horizontalMenu_off) .container>.bottom-bar>.right-bar{box-shadow:none;}
+html[data-wxm-ink] .bottom-bar>.right-bar>.WG_plugin_tool>.tool-text{color:var(--wxm-muted);}
+html[data-wxm-ink].WG_feature_chatDrawer_off .WG_chat_drawer_shell>.channel{border-bottom-color:var(--wxm-control);}
+html[data-wxm-ink] .WG_side_rail{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_rail_left{border-right:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_side_rail_right{border-left:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_chat_reply_menu{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_chat_reply_menu>button:hover,html[data-wxm-ink] .WG_chat_reply_menu>button:focus-visible{background:var(--wxm-raised);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_side_chat_header{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_side_chat_title{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_side_chat_close{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_close:hover,html[data-wxm-ink] .WG_side_chat_close:focus-visible{color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_filter{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_filter:hover,html[data-wxm-ink] .WG_side_chat_filter:focus-visible{color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_filter.is-selected{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_side_chat_history_host{border:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_channels>button{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_channels>button:hover,html[data-wxm-ink] .WG_side_chat_channels>button:focus-visible{color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_channels>button.is-selected{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_side_chat_input{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_side_chat_input:focus{border-color:var(--wxm-control);box-shadow:none;}
+html[data-wxm-ink] .WG_side_chat_send{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_side_chat_send:hover,html[data-wxm-ink] .WG_side_chat_send:focus-visible{color:var(--wxm-text);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.channel-box>span{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.channel-box>span:hover,html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.channel-box>span:focus-visible{color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.channel-box>.selected{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.chat-input>.sender-box{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.chat-input>.sender-btn{border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_side_chat_panel_host>.chat-panel>.channel-emotes{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_chat_drawer_shell{border:1px solid var(--wxm-line);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_chat_drawer_resizer::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_chat_drawer_resizer:hover::after,html[data-wxm-ink] .WG_chat_drawer_resizer.WG_dragging::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_message_boundary_resizer::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_message_boundary_resizer:hover::after,html[data-wxm-ink] .WG_message_boundary_resizer.WG_dragging::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_chat_drawer_bar{border-bottom:1px solid var(--wxm-line);color:var(--wxm-muted);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_chat_drawer_shell>.channel{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_rail_resizer::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_rail_resizer:hover::after,html[data-wxm-ink] .WG_rail_resizer.WG_dragging::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_item_popup_dialog{border-radius:var(--wxm-radius);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_item_popup_child .WG_item_popup_dialog{background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .dialog.WG_item_popup_secondary{background:var(--wxm-bg)!important;box-shadow:none;}
+html[data-wxm-ink] .dialog-confirm.WG_item_popup_secondary{background:var(--wxm-bg)!important;}
+html[data-wxm-ink] .dialog.WG_item_popup_secondary>.dialog-header,html[data-wxm-ink] .dialog.WG_item_popup_secondary>.dialog-content,html[data-wxm-ink] .dialog.WG_item_popup_secondary>.dialog-footer{background-color:var(--wxm-bg)!important;}
+html[data-wxm-ink] .WG_item_popup_header{border-bottom:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_item_popup_close{border-left:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_item_popup_close:hover{color:var(--wxm-text);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_item_popup_body{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_character_look_notice{border-left:3px solid var(--wxm-line);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_rail_role{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_resource_value{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_resource_track{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_energy_timed_value.is-depleted{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_resource_energy .WG_resource_track{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_quick_loadouts{border-top:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_quick_loadout{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_quick_loadout:hover,html[data-wxm-ink] .WG_quick_loadout:focus-visible{border-color:var(--wxm-control);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_quick_loadout:active{color:var(--wxm-muted);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_quick_loadout.is-active,html[data-wxm-ink] .WG_quick_loadout[aria-pressed="true"]{border-color:var(--wxm-control);color:var(--wxm-muted);background:var(--wxm-raised);box-shadow:none;}
+html[data-wxm-ink] .WG_equipment_list{border-top:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_equipment_item{border-left:2px solid var(--border-color, var(--wxm-line));border-radius:var(--wxm-radius);background-color:var(--wxm-bg);}
+html[data-wxm-ink] .WG_equipment_item::after{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_equipment_item:hover,html[data-wxm-ink] .WG_equipment_item:focus-visible{border-left-color:var(--wxm-control);background-color:var(--wxm-bg);}
+html[data-wxm-ink] .WG_equipment_item:hover::after,html[data-wxm-ink] .WG_equipment_item:focus-visible::after{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_equipment_slot{background:var(--wxm-raised);color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_equipment_item.is-empty{border-left:2px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_equipment_item.is-selected{background:var(--wxm-input);}
+html[data-wxm-ink] .WG_equipment_picker_dialog{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_equipment_picker_choice{border-bottom:1px solid var(--wxm-line);border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .WG_equipment_picker_choice:hover,html[data-wxm-ink] .WG_equipment_picker_choice:focus-visible{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_map_modal_dialog{background:var(--wxm-bg);border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);box-shadow:none;}
+html[data-wxm-ink] .WG_map_modal_header{border-bottom:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_map_modal_title{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_map_route_status{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_map_modal_close{border-radius:var(--wxm-radius);color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_map_modal_close:hover,html[data-wxm-ink] .WG_map_modal_close:focus-visible{color:var(--wxm-text);background:var(--wxm-raised);}
+html[data-wxm-ink] .dialog.WG_floating_dialog{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .dialog.WG_floating_dialog>.dialog-header{background:var(--wxm-bg);}
+html[data-wxm-ink] .dialog.WG_floating_dialog>.dialog-content{background:var(--wxm-bg);}
+html[data-wxm-ink] .dialog.WG_floating_dialog>.dialog-footer{border-top:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_extend_toolbar.obj-money{border-bottom:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_extend_toolbar.obj-money>button{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-raised);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_extend_toolbar.obj-money>button:hover{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_skill_training_calc{color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_skill_calc_intro{border-left:3px solid var(--wxm-line);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_skill_calc_form label>span:first-child{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_skill_calc_form input,html[data-wxm-ink] .WG_skill_calc_form select{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_skill_calc_form input:focus,html[data-wxm-ink] .WG_skill_calc_form select:focus{border-color:var(--wxm-control);box-shadow:none;}
+html[data-wxm-ink] .WG_skill_calc_input_suffix input{border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .WG_skill_calc_input_suffix em{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-muted);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_skill_calc_error{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_skill_calc_result>div{border:1px solid var(--wxm-line);border-left:3px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_skill_calc_result small{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_skill_calc_result strong{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_skill_calc_note{color:var(--wxm-muted);}
+html[data-wxm-ink] .dialog.WG_floating_dialog::after{border-right:2px solid var(--wxm-line);border-bottom:2px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_dialog_snapshot{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_dialog_snapshot>.dialog-header,html[data-wxm-ink] .WG_dialog_snapshot>.dialog-footer{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_dialog_snapshot>.dialog-content{background:var(--wxm-bg);}
+html[data-wxm-ink] .dialog-confirm.WG_skills_confirm{border:1px solid var(--wxm-line);border-left:4px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg)!important;box-shadow:none;}
+html[data-wxm-ink] .dialog-confirm.WG_skills_confirm .confirm-count>input{background:var(--wxm-input);}
+html[data-wxm-ink] .WG_plugin_settings_dialog{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_plugin_settings_header,html[data-wxm-ink] .WG_plugin_settings_footer{background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_settings_close{border-left:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_settings_subpage_header{border-bottom:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_settings_heading{border-bottom:1px solid var(--wxm-line);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_plugin_settings_group_title{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_auto_order_item{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_plugin_auto_order_handle{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_auto_order_handle:focus-visible{border-radius:var(--wxm-radius);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_plugin_auto_order_index{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_settings_empty{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_loadout_rule_section{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_loadout_rule{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_plugin_loadout_rule_command{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_loadout_rule_select{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_plugin_loadout_rule_select:hover,html[data-wxm-ink] .WG_plugin_loadout_rule_select:focus-visible{border-color:var(--wxm-control);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_plugin_settings_row{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_plugin_settings_input{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-input);}
+html[data-wxm-ink] .WG_plugin_settings_input:focus{border-color:var(--wxm-control);}
+html[data-wxm-ink] .WG_plugin_settings_desc{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_plugin_switch{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_switch::after{border-radius:var(--wxm-radius);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_plugin_switch[aria-checked="true"]{border-color:var(--wxm-control);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_plugin_switch[aria-checked="true"]::after{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_plugin_settings_footer{border-top:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_plugin_settings_button{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_plugin_settings_button:hover,html[data-wxm-ink] .WG_plugin_settings_button:focus-visible{border-color:var(--wxm-control);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_legacy_settings_entry{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_legacy_settings_button{border-radius:var(--wxm-radius);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_legacy_settings_button:hover,html[data-wxm-ink] .WG_legacy_settings_button:focus-visible{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_auto_first_round_dialog{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-bg);box-shadow:none;}
+html[data-wxm-ink] .WG_auto_first_round_header{border-bottom:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_auto_first_round_title{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_auto_first_round_close{border-left:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_auto_first_round_close:hover,html[data-wxm-ink] .WG_auto_first_round_close:focus-visible{background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_auto_first_round_hint{border-bottom:1px solid var(--wxm-line);color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_auto_first_round_column+.WG_auto_first_round_column{border-left:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_auto_first_round_column_title{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_auto_first_round_row{border:1px solid var(--wxm-line);border-left:3px solid var(--wxm-line);border-radius:var(--wxm-radius);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_auto_first_round_row:hover{border-color:var(--wxm-control);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_auto_first_round_row.is-dragging{border-color:var(--wxm-control);background:var(--wxm-raised);box-shadow:none;}
+html[data-wxm-ink] .WG_auto_first_round_drag_handle{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_auto_first_round_drag_handle:focus-visible{border-radius:var(--wxm-radius);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_auto_first_round_index{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_auto_first_round_button,html[data-wxm-ink] .WG_auto_first_round_add{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_auto_first_round_remove{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_auto_first_round_add{border-left:3px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_auto_first_round_button:hover,html[data-wxm-ink] .WG_auto_first_round_button:focus-visible,html[data-wxm-ink] .WG_auto_first_round_add:hover,html[data-wxm-ink] .WG_auto_first_round_add:focus-visible{border-color:var(--wxm-control);color:var(--wxm-text);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_auto_first_round_empty{color:var(--wxm-muted);}
+html[data-wxm-ink] .WG_auto_first_round_footer{border-top:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_auto_first_round_save{border-color:var(--wxm-control);color:var(--wxm-text);}
+@media (max-width:680px){html[data-wxm-ink] .WG_auto_first_round_column+.WG_auto_first_round_column{border-top:1px solid var(--wxm-line);}
+}
+html[data-wxm-ink] .WG_floating_toggle{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);color:var(--wxm-text);box-shadow:none;}
+html[data-wxm-ink] .WG_floating_toggle:hover{border-color:var(--wxm-control);background:var(--wxm-raised);}
+html[data-wxm-ink] .WG_floating_panel{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);box-shadow:none;}
+html[data-wxm-ink] .WG_floating_header{color:var(--wxm-text);}
+html[data-wxm-ink] .WG_floating_close{border-radius:var(--wxm-radius);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_floating_close:hover{background:var(--wxm-raised);color:var(--wxm-text);}
+html[data-wxm-ink] .WG_log{border:1px solid var(--wxm-line);border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .WG_mimic_footer{border-top:1px solid var(--wxm-line);background:var(--wxm-bg);}
+html[data-wxm-ink] .WG_mimic_open,html[data-wxm-ink] .WG_mimic_retry{border-radius:var(--wxm-radius);}
+html[data-wxm-ink] .WG_mimic_result{border-top:1px solid var(--wxm-line);}
+html[data-wxm-ink] .WG_mimic_dialog details{color:var(--wxm-muted);}

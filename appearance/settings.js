@@ -1,7 +1,7 @@
 /* Shared by the isolated content script and the extension popup. */
 (() => {
   'use strict';
-  const defaults = Object.freeze({enabled:true, theme:'ink', fontSize:15, fontFamily:'system', customFont:'', commandFont:'consolas', density:'comfortable', width:768, colors:true});
+  const defaults = Object.freeze({enabled:true, theme:'dark', fontSize:15, fontFamily:'system', customFont:'', commandFont:'consolas', density:'comfortable', width:768, colors:true});
   const commandFamilies = Object.freeze({
     consolas:'Consolas,"Cascadia Mono","JetBrains Mono",monospace',
     jetbrains:'"JetBrains Mono",Consolas,"Cascadia Mono",monospace',
@@ -21,7 +21,7 @@
     const v = value && typeof value === 'object' ? value : {};
     return {
       enabled: typeof v.enabled === 'boolean' ? v.enabled : defaults.enabled,
-      theme: ['ink','bamboo','blue'].includes(v.theme) ? v.theme : defaults.theme,
+      theme: ['dark','light','hc-dark','hc-light'].includes(v.theme) ? v.theme : defaults.theme,
       fontSize: typeof v.fontSize === 'number' && Number.isFinite(v.fontSize) ? Math.min(19,Math.max(14,Math.round(v.fontSize))) : defaults.fontSize,
       fontFamily: v.fontFamily === 'custom' || Object.hasOwn(families,v.fontFamily) ? v.fontFamily : defaults.fontFamily,
       customFont: typeof v.customFont === 'string' ? v.customFont.replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,100) : '',

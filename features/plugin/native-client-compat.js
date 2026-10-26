@@ -274,15 +274,17 @@
       Dialog: host.Dialog, jquery: $, SendCommand: (command) => host.SendCommand(command),
       getAutomation: () => WG, getRoleId: () => host.Process.player,
     }).tasks;
-    // Keep the SPA's task validation, rewards and rendering. Share only our
-    // daily-status panel; it reads limits from info instead of assuming caps.
-    for (const name of ['dailyStatusDay', 'getDailyStatus', 'parseDailyStatus', 'renderDailyStatus', 'cancelDailyStatus', 'requestDailyStatus']) nativeTasks[name] = sharedTasks[name];
+    // Keep native validation/rendering; share daily status and the acknowledged
+    // claim queue, using the same task commands as each native claim button.
+    for (const name of ['dailyStatusDay', 'getDailyStatus', 'parseDailyStatus', 'renderDailyStatus', 'cancelDailyStatus', 'requestDailyStatus', 'claimableItems', 'renderClaimControls', 'cancelClaimAll', 'startClaimAll', 'sendNextClaim', 'checkClaimProgress']) nativeTasks[name] = sharedTasks[name];
     const createItems = nativeTasks.create_items;
     nativeTasks.create_items = function () {
       const panel = this.element && this.element.find('.task-daily-status').detach();
       const result = createItems.apply(this, arguments);
       if (panel && panel.length) panel.prependTo(this.element);
       this.renderDailyStatus();
+      this.renderClaimControls();
+      this.checkClaimProgress();
       return result;
     };
     const showTasks = nativeTasks.show;
@@ -293,12 +295,14 @@
     };
     const closeTasks = nativeTasks.close;
     nativeTasks.close = function () {
+      this.cancelClaimAll();
       this.cancelDailyStatus();
       if (this.dailyStatusObserver) this.dailyStatusObserver.disconnect();
       this.dailyStatusObserver = null;
       return closeTasks.apply(this, arguments);
     };
     WG.add_hook('login', function () {
+      nativeTasks.cancelClaimAll();
       nativeTasks.cancelDailyStatus();
       nativeTasks.dailyStatus = null;
       nativeTasks.dailyStatusFailed = false;

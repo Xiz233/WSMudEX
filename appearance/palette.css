@@ -1,0 +1,47 @@
+/* Workbench surfaces inspired by VS Code's built-in Modern and HC themes.
+   Shared by the game and settings popup. No remote fonts or resources. */
+html[data-wxm-ink] {
+  color-scheme:dark;
+  --wxm-bg:#1f1f1f; --wxm-panel:#181818; --wxm-raised:#2b2b2b;
+  --wxm-input:#313131; --wxm-text:#cccccc; --wxm-muted:#9d9d9d;
+  --wxm-accent:#4daafc; --wxm-focus:#0078d4; --wxm-line:#454545;
+  --wxm-control:#6b6b6b; --wxm-tint:#264f78; --wxm-selected:#ffffff;
+  --wxm-primary:#0078d4; --wxm-primary-text:#ffffff;
+  --wxm-green:#89d185; --wxm-red:#f48771; --wxm-blue:#9cdcfe;
+  --wxm-cyan:#4ec9b0; --wxm-purple:#c586c0; --wxm-orange:#ce9178;
+  --wxm-yellow:#dcdcaa; --wxm-radius:2px; --wxm-pad:8px; --wxm-leading:1.5;
+}
+html[data-wxm-ink="light"] {
+  color-scheme:light;
+  --wxm-bg:#ffffff; --wxm-panel:#f8f8f8; --wxm-raised:#f0f0f0;
+  --wxm-input:#ffffff; --wxm-text:#3b3b3b; --wxm-muted:#616161;
+  --wxm-accent:#005fb8; --wxm-focus:#005fb8; --wxm-line:#d0d0d0;
+  --wxm-control:#767676; --wxm-tint:#e5ebf1; --wxm-selected:#000000;
+  --wxm-primary:#005fb8; --wxm-primary-text:#ffffff;
+  --wxm-green:#246b25; --wxm-red:#b5200d; --wxm-blue:#0451a5;
+  --wxm-cyan:#006b61; --wxm-purple:#813a90; --wxm-orange:#934300;
+  --wxm-yellow:#735c00;
+}
+html[data-wxm-ink="hc-dark"] {
+  color-scheme:dark;
+  --wxm-bg:#000000; --wxm-panel:#000000; --wxm-raised:#000000;
+  --wxm-input:#000000; --wxm-text:#ffffff; --wxm-muted:#ffffff;
+  --wxm-accent:#6fc3df; --wxm-focus:#f38518; --wxm-line:#ffffff;
+  --wxm-control:#ffffff; --wxm-tint:#000000; --wxm-selected:#ffffff;
+  --wxm-primary:#000000; --wxm-primary-text:#ffffff;
+  --wxm-green:#a8e89b; --wxm-red:#ffaaaa; --wxm-blue:#a6d8ff;
+  --wxm-cyan:#83e5db; --wxm-purple:#e4b8ff; --wxm-orange:#ffd090;
+  --wxm-yellow:#ffff99; --wxm-radius:0px;
+}
+html[data-wxm-ink="hc-light"] {
+  color-scheme:light;
+  --wxm-bg:#ffffff; --wxm-panel:#ffffff; --wxm-raised:#ffffff;
+  --wxm-input:#ffffff; --wxm-text:#000000; --wxm-muted:#292929;
+  --wxm-accent:#0f4a85; --wxm-focus:#0f4a85; --wxm-line:#292929;
+  --wxm-control:#292929; --wxm-tint:#ffffff; --wxm-selected:#000000;
+  --wxm-primary:#0f4a85; --wxm-primary-text:#ffffff;
+  --wxm-green:#145214; --wxm-red:#8b160c; --wxm-blue:#0f4a85;
+  --wxm-cyan:#00554e; --wxm-purple:#652576; --wxm-orange:#713300;
+  --wxm-yellow:#5a4700; --wxm-radius:0px;
+}
+html[data-wxm-density="compact"] { --wxm-pad:6px; --wxm-leading:1.35; }

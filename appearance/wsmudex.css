@@ -9,12 +9,12 @@ html[data-wxm-ink] :is(.WG_side_rail,.WG_floating_panel,.WG_item_popup_dialog,
   scrollbar-color:var(--wxm-line) transparent;
 }
 html[data-wxm-ink] .container { border-color:var(--wxm-line); }
-html[data-wxm-ink] .WG_side_rail { padding:12px; line-height:var(--wxm-leading); }
+html[data-wxm-ink] .WG_side_rail { padding:8px; line-height:var(--wxm-leading); }
 html[data-wxm-ink] .WG_side_rail_left>.WG_rail_role {
-  padding:16px 8px; margin-bottom:12px;
-  border-top:2px solid var(--wxm-accent); border-bottom:1px solid var(--wxm-line);
-  background:var(--wxm-tint); border-radius:8px;
-  font-size:1.2em; letter-spacing:.08em;
+  padding:8px 0; margin-bottom:8px;
+  border-top:0; border-bottom:1px solid var(--wxm-line);
+  background:transparent; border-radius:var(--wxm-radius);
+  font-size:1em; letter-spacing:0;
 }
 html[data-wxm-ink] :is(.WG_resource_row,.WG_equipment_item,.WG_plugin_settings_section,
   .WG_plugin_settings_row,.WG_item_popup_header,.WG_plugin_settings_footer,
@@ -23,9 +23,9 @@ html[data-wxm-ink] :is(.WG_resource_label,.WG_equipment_slot,.WG_plugin_settings
   .WG_plugin_settings_section_desc,.WG_map_route_status,.WG_item_popup_desc,
   .WG_auto_first_round_hint,.WG_equipment_item.is-empty .WG_equipment_name) { color:var(--wxm-muted); }
 html[data-wxm-ink] .WG_resource_value { color:var(--wxm-text); font-variant-numeric:tabular-nums; }
-html[data-wxm-ink] .WG_resource_track { background-color:var(--wxm-bg); border-color:var(--wxm-line); border-radius:4px; }
-html[data-wxm-ink] .WG_resource_hp .WG_resource_fill { background-color:#b85460; }
-html[data-wxm-ink] .WG_resource_mp .WG_resource_fill { background-color:#5385be; }
+html[data-wxm-ink] .WG_resource_track { background-color:var(--wxm-bg); border-color:var(--wxm-line); border-radius:var(--wxm-radius); }
+html[data-wxm-ink] .WG_resource_hp .WG_resource_fill { background-color:var(--wxm-red); }
+html[data-wxm-ink] .WG_resource_mp .WG_resource_fill { background-color:var(--wxm-blue); }
 html[data-wxm-ink] .WG_resource_energy .WG_resource_fill { background-color:var(--wxm-green); }
 html[data-wxm-ink] :is(.WG_equipment_list::before,.WG_side_chat_title,.WG_plugin_settings_title,
   .WG_plugin_settings_heading,.WG_item_popup_title,.WG_map_modal_title,.WG_auto_first_round_title) { color:var(--wxm-accent); }
@@ -35,7 +35,7 @@ html[data-wxm-ink] :is(.WG_quick_loadout,.WG_side_chat_filter,.WG_side_chat_chan
   .WG_equipment_picker_choice,.WG_floating_toggle,.WG_chat_drawer_toggle,.WG_floating_close,
   .WG_plugin_auto_save,.WG_extend_toolbar>button,.WG_mimic_open,.WG_mimic_retry) {
   background-color:var(--wxm-raised); color:var(--wxm-text);
-  border-color:var(--wxm-line); border-radius:5px;
+  border-color:var(--wxm-line); border-radius:var(--wxm-radius);
 }
 html[data-wxm-ink] :is(.WG_quick_loadout[aria-pressed="true"],.WG_side_chat_filter.is-selected,
   .WG_side_chat_channels>button.is-selected,.WG_equipment_item.is-selected) {
@@ -62,11 +62,11 @@ html[data-wxm-ink] :is(.WG_floating_header,.WG_item_popup_header,.WG_plugin_sett
   background-color:var(--wxm-raised); color:var(--wxm-accent);
 }
 html[data-wxm-ink] :is(.WG_floating_panel,.WG_item_popup_dialog,.WG_plugin_settings_dialog,
-  .WG_equipment_picker_dialog,.WG_auto_first_round_dialog) { border-radius:10px; box-shadow:0 12px 40px #0006; }
+  .WG_equipment_picker_dialog,.WG_auto_first_round_dialog) { border-radius:var(--wxm-radius); box-shadow:none; }
 html[data-wxm-ink] :is(.WG_rail_resizer,.WG_chat_drawer_resizer,.WG_message_boundary_resizer)::after { background-color:var(--wxm-line); }
 html[data-wxm-ink] :is(.WG_rail_resizer,.WG_chat_drawer_resizer,.WG_message_boundary_resizer):hover::after { background-color:var(--wxm-accent); }
 html[data-wxm-ink] :is(.WG_log>pre,.WG_side_chat_history_host .channel,.WG_chat_drawer_shell>.channel) { line-height:var(--wxm-leading); }
 html[data-wxm-ink] .bottom-bar>.right-bar>.WG_plugin_tool>.tool-text { color:var(--wxm-text); }
-html[data-wxm-ink] #raidToolbar .raid-item { background-color:var(--wxm-raised); border-color:var(--wxm-line); border-radius:5px; }
+html[data-wxm-ink] #raidToolbar .raid-item { background-color:var(--wxm-raised); border-color:var(--wxm-line); border-radius:var(--wxm-radius); }
 html[data-wxm-ink] :is(.WG_button>.zdy-item,.item-commands>.WG_trigger_card) { background-color:var(--wxm-raised); border-color:var(--wxm-line); }
 html[data-wxm-ink] .content-message [data-wxm-command-ink] { font-family:var(--wxm-code-family) !important; }

@@ -1,6 +1,6 @@
-# WSMudEX · 墨境
+# WSMudEX
 
-本分支整合墨境主题、自定义字体和命令等宽字体。安装与切换说明见 [INK-README.md](INK-README.md)。
+本分支提供任务奖励一键收取、四套 VS Code 风格主题、自定义字体和命令等宽字体。安装与切换说明见 [INK-README.md](INK-README.md)。
 
 以下保留上游项目说明。
 
