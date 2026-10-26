@@ -1,3 +1,9 @@
+# WSMudEX · 墨境
+
+本分支整合墨境主题、自定义字体和命令等宽字体。安装与切换说明见 [INK-README.md](INK-README.md)。
+
+以下保留上游项目说明。
+
 # WSMudEX
 
 WSMudEX 是适用于“武神传说（WSMUD）”网页游戏的 Chrome Manifest V3 扩展，支持：

@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "WSMudEX",
-  "version": "1.2.0",
-  "description": "加载 wsmud2.com / wsmud2.cn / wxmud1.com 的 JavaScript 文件",
-  "permissions": ["scripting", "storage"],
+  "name": "WSMudEX · 墨境",
+  "version": "1.2.1",
+  "description": "WSMudEX 墨境版：保留原插件功能，整合三套外观、自定义字体和命令等宽字体。",
+  "permissions": [
+    "scripting",
+    "storage"
+  ],
   "host_permissions": [
     "http://*.wsmud2.com/*",
     "https://*.wsmud2.com/*",
@@ -36,6 +39,30 @@
         "extension/content-loader.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "http://*.wsmud2.com/*",
+        "https://*.wsmud2.com/*",
+        "http://wsmud2.cn/*",
+        "https://wsmud2.cn/*",
+        "http://*.wsmud2.cn/*",
+        "https://*.wsmud2.cn/*",
+        "http://wxmud1.com/*",
+        "https://wxmud1.com/*",
+        "http://*.wxmud1.com/*",
+        "https://*.wxmud1.com/*"
+      ],
+      "css": [
+        "appearance/theme.css",
+        "appearance/wsmudex.css"
+      ],
+      "js": [
+        "appearance/settings.js",
+        "appearance/command-font.js",
+        "appearance/content.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
@@ -65,12 +92,14 @@
   ],
   "action": {
     "default_popup": "popup/index.html",
-    "default_title": "WSMudEX"
+    "default_title": "WSMudEX · 墨境"
   },
   "icons": {
     "128": "assets/icon-128.png"
   },
   "background": {
     "service_worker": "extension/service-worker.js"
-  }
+  },
+  "version_name": "1.2.1-ink.1",
+  "minimum_chrome_version": "111"
 }
