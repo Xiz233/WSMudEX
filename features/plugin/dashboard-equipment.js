@@ -151,6 +151,7 @@
       resetDashboardSession: function (roleId) {
         var previousRole = WG.dashboardSessionRoleId ?? G.id;
         WG.dashboardSessionRoleId = roleId;
+        WG.updateQuickSkillState(null);
         WG.dashboardAttributeValues = {};
         WG.updateDashboardAttributes();
         for (var key of [
@@ -1022,6 +1023,14 @@
         }
       },
       dashboardEquipmentSignature: null,
+      updateQuickSkillState: function (group) {
+        var valid = group != null && /^[0-2]$/.test(String(group));
+        WG.currentSkillGroup = valid ? Number(group) : null;
+        $(".WG_quick_skill_loadout").each(function () {
+          var selected = valid && Number($(this).attr("data-skill-group")) === Number(group);
+          $(this).toggleClass("is-active", selected).attr("aria-pressed", String(selected));
+        });
+      },
       updateQuickLoadoutState: function (equipmentGroup) {
         var normalizedGroup = Number(equipmentGroup);
         if (

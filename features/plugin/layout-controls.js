@@ -660,6 +660,14 @@
               WG.Send("eqgroup " + equipmentGroup);
             }
           });
+        $(".WG_quick_skill_loadouts")
+          .off("click.WG_quick_skill")
+          .on("click.WG_quick_skill", ".WG_quick_skill_loadout", function () {
+            var raw = $(this).attr("data-skill-group");
+            if (!/^[0-2]$/.test(raw || "")) return;
+            WG.Send("skgroup " + raw);
+          });
+        WG.updateQuickSkillState(WG.currentSkillGroup);
         if (WG.equipmentPickerOutsidePointerDown) {
           document.removeEventListener("pointerdown", WG.equipmentPickerOutsidePointerDown, true);
         }

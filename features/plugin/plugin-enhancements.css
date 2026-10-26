@@ -2619,3 +2619,10 @@ white-space: pre-line;
     .WG_attribute_list { grid-template-columns:minmax(0,1fr); }
     .WG_attribute_row[data-attribute="fy"] { border-top:0; margin-top:0; padding-top:3px; }
 }
+
+/* Separate native equipment and skill presets. */
+.WG_preset_label { margin:8px 0 4px; font-size:.85em; color:var(--wxm-muted,#aaa); }
+.WG_quick_skill_loadouts { display:flex; gap:6px; margin-bottom:8px; }
+.WG_quick_skill_loadout { flex:1; min-width:0; padding:5px 8px; font:inherit; cursor:pointer; color:var(--wxm-text,#ccc); background:var(--wxm-raised,#222); border:1px solid var(--wxm-line,#555); border-radius:var(--wxm-radius,2px); }
+.WG_quick_skill_loadout:hover,.WG_quick_skill_loadout:focus-visible { border-color:var(--wxm-focus,#75beff); outline:1px solid var(--wxm-focus,#75beff); }
+.WG_quick_skill_loadout[aria-pressed="true"] { color:var(--wxm-accent,#75beff); background:var(--wxm-tint,#264f78); border-color:var(--wxm-accent,#75beff); }

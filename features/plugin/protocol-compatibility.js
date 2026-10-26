@@ -147,6 +147,9 @@
       function updateDashboardFromEvent(event) {
         if (!event) return;
         WG.syncDashboardAfterSkillProgress(event);
+        if (event.type === "dialog" && event.dialog === "skills" &&
+            event.sk_group != null && !event.master && !event.follower)
+          WG.updateQuickSkillState(event.sk_group);
         if (
           event.type === "dialog" &&
           event.dialog === "score" &&

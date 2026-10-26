@@ -34,10 +34,17 @@
                 <summary>人物属性</summary>
                 <dl class="WG_attribute_list" aria-label="角色基础与战斗属性"></dl>
               </details>
+              <div class="WG_preset_label">装备</div>
               <div class="WG_quick_loadouts" role="group" aria-label="快速切换配装">
                 <button class="WG_quick_loadout" type="button" data-equipment-group="0" title="切换到配装 1" aria-label="切换到配装 1" aria-pressed="false">1</button>
                 <button class="WG_quick_loadout" type="button" data-equipment-group="1" title="切换到配装 2" aria-label="切换到配装 2" aria-pressed="false">2</button>
                 <button class="WG_quick_loadout" type="button" data-equipment-group="2" title="切换到配装 3" aria-label="切换到配装 3" aria-pressed="false">3</button>
+              </div>
+              <div class="WG_preset_label">功法</div>
+              <div class="WG_quick_skill_loadouts" role="group" aria-label="快速切换功法预设">
+                <button class="WG_quick_skill_loadout" type="button" data-skill-group="0" aria-pressed="false" title="切换到功法预设 1">1</button>
+                <button class="WG_quick_skill_loadout" type="button" data-skill-group="1" aria-pressed="false" title="切换到功法预设 2">2</button>
+                <button class="WG_quick_skill_loadout" type="button" data-skill-group="2" aria-pressed="false" title="切换到功法预设 3">3</button>
               </div>
               <div class="WG_equipment_list"></div>
             </aside>
