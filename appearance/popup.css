@@ -17,8 +17,8 @@ legend { float:left; width:100%; padding:0; margin-bottom:10px; font-weight:600;
 .swatch:before { content:""; width:6px; background:var(--preview-panel); border-right:1px solid var(--preview-line); }
 .dark { --preview-bg:#1f1f1f; --preview-panel:#181818; --preview-line:#777; }
 .light { --preview-bg:#fff; --preview-panel:#f8f8f8; --preview-line:#999; }
-.hc-dark { --preview-bg:#000; --preview-panel:#000; --preview-line:#fff; }
-.hc-light { --preview-bg:#fff; --preview-panel:#fff; --preview-line:#292929; }
+.hc-dark { --preview-bg:#000; --preview-panel:#000; --preview-line:#377cb4; }
+.hc-light { --preview-bg:#fff; --preview-panel:#fff; --preview-line:#0f4a85; }
 .row { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .setting { min-height:46px; border-bottom:1px solid var(--wxm-line); }
 .switch { position:relative; width:30px; height:18px; flex-shrink:0; }

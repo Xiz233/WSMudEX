@@ -40,7 +40,7 @@
           if (!this.element) return;
           let bar = this.element.find('.task-claim-toolbar');
           if (!bar.length) {
-            bar = $('<div class="task-claim-toolbar"><button type="button" class="task-claim-all">一键收取</button><button type="button" class="task-claim-stop" hidden>停止</button><span class="task-claim-status" role="status" aria-live="polite"></span></div>');
+            bar = $('<div class="task-claim-toolbar"><span class="task-claim-status" role="status" aria-live="polite"></span><button type="button" class="task-claim-stop" hidden>停止</button><button type="button" class="task-claim-all">一键收取</button></div>');
             bar.find('.task-claim-all').on('click', () => this.startClaimAll());
             bar.find('.task-claim-stop').on('click', () => this.cancelClaimAll('已停止，未发送的任务不会领取'));
             bar.prependTo(this.element);

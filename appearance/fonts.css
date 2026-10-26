@@ -1,0 +1,22 @@
+/* Local Latin glyphs only: Chinese and CJK punctuation always use the body font.
+   No font download and no DOM/text splitting, including dynamically echoed commands. */
+@font-face {
+  font-family:"WXM Consolas Latin";
+  src:local("Consolas");
+  unicode-range:U+0000-024F;
+}
+@font-face {
+  font-family:"WXM JetBrains Latin";
+  src:local("JetBrains Mono");
+  unicode-range:U+0000-024F;
+}
+@font-face {
+  font-family:"WXM Cascadia Latin";
+  src:local("Cascadia Mono"),local("Cascadia Code");
+  unicode-range:U+0000-024F;
+}
+@font-face {
+  font-family:"WXM Mono Latin";
+  src:local("Menlo"),local("DejaVu Sans Mono"),local("Liberation Mono"),local("Courier New");
+  unicode-range:U+0000-024F;
+}

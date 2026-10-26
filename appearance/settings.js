@@ -3,9 +3,9 @@
   'use strict';
   const defaults = Object.freeze({enabled:true, theme:'dark', fontSize:15, fontFamily:'system', customFont:'', commandFont:'consolas', density:'comfortable', width:768, colors:true});
   const commandFamilies = Object.freeze({
-    consolas:'Consolas,"Cascadia Mono","JetBrains Mono",monospace',
-    jetbrains:'"JetBrains Mono",Consolas,"Cascadia Mono",monospace',
-    cascadia:'"Cascadia Mono","Cascadia Code",Consolas,monospace',
+    consolas:'"WXM Consolas Latin","WXM Cascadia Latin","WXM JetBrains Latin","WXM Mono Latin"',
+    jetbrains:'"WXM JetBrains Latin","WXM Consolas Latin","WXM Cascadia Latin","WXM Mono Latin"',
+    cascadia:'"WXM Cascadia Latin","WXM Consolas Latin","WXM JetBrains Latin","WXM Mono Latin"',
     inherit:'inherit'
   });
   const fallback = '"Microsoft YaHei UI","PingFang SC","Noto Sans CJK SC",sans-serif';
@@ -38,6 +38,7 @@
       ? (s.customFont ? JSON.stringify(s.customFont)+','+fallback : fallback)
       : families[s.fontFamily];
   }
-  const commandFontStack=raw=>commandFamilies[normalize(raw).commandFont];
+  const commandFontStack=raw=>normalize(raw).commandFont==='inherit'
+    ? 'inherit' : commandFamilies[normalize(raw).commandFont]+','+fontStack(raw);
   globalThis.WXMInk = Object.freeze({defaults,normalize,fontStack,commandFontStack,key:'wxmInkSettings'});
 })();

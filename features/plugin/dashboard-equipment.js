@@ -6,6 +6,63 @@
     const { WG, G, UI, legacy, messageAppend } = context;
 
     Object.assign(WG, {
+      dashboardAttributes: [
+        ["str", "臂力", true], ["con", "根骨", true],
+        ["dex", "身法", true], ["int", "悟性", true],
+        ["gj", "攻击"], ["fy", "防御"], ["mz", "命中"],
+        ["ds", "躲闪"], ["zj", "招架"], ["bj", "暴击"],
+        ["gjsd", "攻击速度"],
+      ],
+      // Only same-role score responses populate this view. Keep partial updates
+      // separate from upstream G.score, which can be replaced by other dialogs.
+      dashboardAttributeValues: {},
+      captureDashboardAttributes: function (event) {
+        var changed = false;
+        for (var field of WG.dashboardAttributes) {
+          var keys = field[2] ? [field[0], field[0] + "_add", field[0] + "1_add"] : [field[0]];
+          for (var key of keys) {
+            if (Object.prototype.hasOwnProperty.call(event, key)) {
+              WG.dashboardAttributeValues[key] = event[key];
+              changed = true;
+            }
+          }
+        }
+        return changed;
+      },
+      dashboardAttributeText: function (key, withBonuses) {
+        var values = WG.dashboardAttributeValues;
+        function plain(value) {
+          if (value == null || value === "" ||
+              (typeof value !== "string" && typeof value !== "number")) return "—";
+          var text = String(value).replace(/<[^>]*>/g, "").trim();
+          if (!text || /^(?:NaN|[+-]?Infinity)$/.test(text)) return "—";
+          return text;
+        }
+        var value = plain(values[key]);
+        if (value === "—" || !withBonuses) return value;
+        for (var suffix of ["_add", "1_add"]) {
+          var addition = plain(values[key + suffix]);
+          if (addition === "—" || Number(addition) === 0) continue;
+          value += " (" + (suffix === "1_add" ? "先" : "") +
+            (/^[+-]/.test(addition) ? "" : "+") + addition + ")";
+        }
+        return value;
+      },
+      updateDashboardAttributes: function () {
+        var list = $(".WG_attribute_list");
+        if (!list.length) return;
+        for (var field of WG.dashboardAttributes) {
+          var row = list.find('[data-attribute="' + field[0] + '"]');
+          if (!row.length) {
+            row = $("<div>", { class: "WG_attribute_row" })
+              .attr("data-attribute", field[0])
+              .append($("<dt>").text(field[1]), $("<dd>"))
+              .appendTo(list);
+          }
+          var value = WG.dashboardAttributeText(field[0], field[2]);
+          row.find("dd").text(value).attr("title", field[1] + "：" + value);
+        }
+      },
       dashboardEquipmentSlots: [
         "武器",
         "衣服",
@@ -94,6 +151,8 @@
       resetDashboardSession: function (roleId) {
         var previousRole = WG.dashboardSessionRoleId ?? G.id;
         WG.dashboardSessionRoleId = roleId;
+        WG.dashboardAttributeValues = {};
+        WG.updateDashboardAttributes();
         for (var key of [
           "dashboardScoreRequestTimer", "equipmentPickerPackRequestTimer",
           "automationScore2RequestTimer",
@@ -320,7 +379,8 @@
             return event[key] != null;
           },
         );
-        if (!hasResource) return false;
+        var hasAttributes = WG.captureDashboardAttributes(event);
+        if (!hasResource && !hasAttributes) return false;
         G.score = Object.assign({}, G.score || {}, event);
         event.hp != null && (G.hp = event.hp);
         event.max_hp != null && (G.maxHp = event.max_hp);
@@ -1112,6 +1172,7 @@
           );
         WG.setDashboardResource("potential", score.pot);
         WG.setDashboardResource("experience", score.exp);
+        WG.updateDashboardAttributes();
 
         WG.updateDashboardEquipment();
         $(".WG_plugin_auto_toggle").attr(

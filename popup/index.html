@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN" data-wxm-ink="dark">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WSMudEX · 设置</title><link rel="stylesheet" href="../appearance/palette.css"><link rel="stylesheet" href="../appearance/popup.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WSMudEX · 设置</title><link rel="stylesheet" href="../appearance/fonts.css"><link rel="stylesheet" href="../appearance/palette.css"><link rel="stylesheet" href="../appearance/popup.css"></head>
 <body>
   <header><div><h1>WSMudEX</h1><p>界面设置</p></div><label class="switch" title="启用界面主题"><input id="enabled" type="checkbox" aria-label="启用界面主题"><span></span></label></header>
   <main>
@@ -10,7 +10,7 @@
     <div id="customFontRow" hidden><label for="customFont">已安装字体的名称</label><div class="font-entry"><input id="customFont" type="text" maxlength="100" placeholder="例如：LXGW WenKai" autocomplete="off" spellcheck="false" aria-describedby="fontHelp"><button id="applyFont" type="button">应用</button></div><small>输入后按 Enter，或点击“应用”保存。</small></div>
     <p id="fontHelp" class="font-help">使用电脑已安装的字体；缺失时自动回退。新字体安装后请刷新游戏。</p>
     <div class="row setting"><label for="commandFont">命令回显字体</label><select id="commandFont"><option value="consolas">Consolas</option><option value="jetbrains">JetBrains Mono</option><option value="cascadia">Cascadia Mono</option><option value="inherit">跟随正文</option></select></div>
-    <div class="font-preview"><span>字体预览</span><p id="fontSample">正文预览：江湖未远，来日方长。<br>气血 2343285 / 2582765</p><p id="commandSample">18:33:02 state info</p></div>
+    <p class="font-help">命令中的英文、数字使用编程字体；中文及中文标点跟随游戏字体。</p><div class="font-preview"><span>字体预览</span><p id="fontSample">正文预览：江湖未远，来日方长。<br>气血 2343285 / 2582765</p><p id="commandSample">18:33:02 say 江湖未远，来日方长。</p></div>
     <div class="row"><label for="fontSize">阅读字号</label><output id="fontValue" for="fontSize"></output></div><input id="fontSize" type="range" min="14" max="19" step="1">
     <div class="row setting"><label for="density">文字间距</label><select id="density"><option value="comfortable">舒适</option><option value="compact">紧凑</option></select></div>
     <label class="row setting"><span>文字颜色随主题适配<small class="sub">保留紫、橙等境界色系</small></span><input id="colors" type="checkbox"></label>
