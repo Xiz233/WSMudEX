@@ -2656,3 +2656,17 @@ html.WG_feature_uiMotion_off :is(.WG_quick_loadout,.WG_quick_skill_loadout,.WG_p
 @media (prefers-reduced-motion:reduce) {
   :is(.WG_quick_loadout,.WG_quick_skill_loadout,.WG_plugin_settings_button,.action-name[cmd],.WG_plugin_settings_dialog,.WG_equipment_picker_dialog) { transition:none !important; animation:none !important; }
 }
+
+/* Native game panels, tab changes and toolbar share the same motion preference. */
+@media (prefers-reduced-motion:no-preference) {
+  html:not(.WG_feature_uiMotion_off) :is(.tool-item,.footer-item,.jh-family-tab,.jh-plane-tab,.fb-item,.fam-item,.action-name[cmd],.item-commands>span[cmd]) {
+    transition:background-color 140ms ease-out,color 140ms ease-out,border-color 140ms ease-out;
+  }
+  html:not(.WG_feature_uiMotion_off) :is(.dialog:not(.hide):not([hidden]),.dialog-confirm:not(.hide):not([hidden]),.jh-family-section.selected,.jh-plane-panel.selected,.bottom-bar>.right-bar.WG_horizontal_menu_open,.bottom-bar:has(>.br-tool:not(.hide-tool))>.right-bar) {
+    animation:WG_ui_fade 160ms ease-out;
+  }
+}
+html.WG_feature_uiMotion_off :is(.tool-item,.footer-item,.jh-family-tab,.jh-plane-tab,.fb-item,.fam-item,.action-name[cmd],.item-commands>span[cmd],.dialog:not(.hide):not([hidden]),.dialog-confirm:not(.hide):not([hidden]),.jh-family-section.selected,.jh-plane-panel.selected,.bottom-bar>.right-bar.WG_horizontal_menu_open,.bottom-bar:has(>.br-tool:not(.hide-tool))>.right-bar) { animation:none !important; transition:none !important; }
+@media (prefers-reduced-motion:reduce) {
+  :is(.tool-item,.footer-item,.jh-family-tab,.jh-plane-tab,.fb-item,.fam-item,.action-name[cmd],.item-commands>span[cmd],.dialog:not(.hide):not([hidden]),.dialog-confirm:not(.hide):not([hidden]),.jh-family-section.selected,.jh-plane-panel.selected,.bottom-bar>.right-bar.WG_horizontal_menu_open,.bottom-bar:has(>.br-tool:not(.hide-tool))>.right-bar) { animation:none !important; transition:none !important; }
+}

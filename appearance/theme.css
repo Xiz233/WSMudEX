@@ -130,3 +130,23 @@ html[data-wxm-ink] .jh-goto-grid .action-desc { padding:10px 12px; line-height:1
 html[data-wxm-ink] .jh-goto-grid .action-name { padding:8px 12px; }
 
 html[data-wxm-ink] .WG_quick_loadouts { border-top:0; }
+
+/* The native Jianghu family tabs/sections have their own borders, inside fb-right. */
+html[data-wxm-ink] .dialog-fb > .fb-right { box-sizing:border-box; padding:12px 14px; }
+html[data-wxm-ink] .dialog-fb .jh-family-tabs,
+html[data-wxm-ink] .dialog-fb .jh-plane-tabs {
+  box-sizing:border-box; padding:8px 10px; gap:8px; margin-bottom:12px;
+}
+html[data-wxm-ink] .dialog-fb .jh-family-section {
+  box-sizing:border-box; padding:12px 14px; line-height:1.7; margin-bottom:12px;
+}
+html[data-wxm-ink] .dialog-fb .jh-plane-panel { box-sizing:border-box; padding:10px 12px; line-height:1.7; }
+html[data-wxm-ink] .dialog-fb :is(.jh-family-tab,.jh-plane-tab) {
+  box-sizing:border-box; padding:6px 12px; line-height:1.5;
+  background:var(--wxm-raised); color:var(--wxm-text); border:1px solid var(--wxm-control);
+  border-radius:var(--wxm-radius); text-shadow:none;
+}
+html[data-wxm-ink] .dialog-fb :is(.jh-family-tab,.jh-plane-tab).selected {
+  background:var(--wxm-tint); color:var(--wxm-selected); border-color:var(--wxm-focus);
+}
+html[data-wxm-ink] .dialog-fb :is(.jh-family-tab,.jh-plane-tab):hover { background:var(--wxm-tint); border-color:var(--wxm-focus); }
