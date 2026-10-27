@@ -904,7 +904,8 @@
         if (typeof ToolAction !== "undefined") {
           ToolAction.InitTools();
           if (!ToolAction.HasUserToggled) ToolAction.SetToolsOpen(false);
-        } else {
+        } else if (!$(".right-bar").hasClass("WG_horizontal_menu_open") &&
+                   $(".bottom-bar > .br-tool").hasClass("hide-tool")) {
           $(".right-bar > .tool-item").css({ display: "none", opacity: 0 });
           $(".right-bar").removeClass("WG_horizontal_menu_open");
           $(".bottom-bar > .br-tool")

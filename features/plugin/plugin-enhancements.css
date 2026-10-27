@@ -144,6 +144,7 @@ html:not(.WG_feature_horizontalMenu_off) .container > .bottom-bar > .right-bar {
     background: transparent;
     box-shadow: none;
 }
+html:not(.WG_feature_horizontalMenu_off) .container > .bottom-bar:has(> .br-tool:not(.hide-tool)) > .right-bar,
 html:not(.WG_feature_horizontalMenu_off) .container > .bottom-bar > .right-bar.WG_horizontal_menu_open {
     visibility: visible;
     opacity: 1;
@@ -2626,3 +2627,8 @@ white-space: pre-line;
 .WG_quick_skill_loadout { flex:1; min-width:0; padding:5px 8px; font:inherit; cursor:pointer; color:var(--wxm-text,#ccc); background:var(--wxm-raised,#222); border:1px solid var(--wxm-line,#555); border-radius:var(--wxm-radius,2px); }
 .WG_quick_skill_loadout:hover,.WG_quick_skill_loadout:focus-visible { border-color:var(--wxm-focus,#75beff); outline:1px solid var(--wxm-focus,#75beff); }
 .WG_quick_skill_loadout[aria-pressed="true"] { color:var(--wxm-accent,#75beff); background:var(--wxm-tint,#264f78); border-color:var(--wxm-accent,#75beff); }
+
+/* Keep native animation timers from hiding an explicitly opened overlay menu. */
+html:not(.WG_feature_horizontalMenu_off) .bottom-bar > .right-bar.WG_horizontal_menu_open > .tool-item {
+    display:block !important; opacity:1 !important;
+}
