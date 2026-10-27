@@ -118,3 +118,15 @@ html[data-wxm-ink] :is(.fb-item,.fam-item):is(.select,.selected) {
 html[data-wxm-ink] :is(.fb-actions,.jh-goto-grid) .action-name.disabled {
   background-color:var(--wxm-panel); color:var(--wxm-muted); border-color:var(--wxm-line); cursor:default;
 }
+
+/* Keep prose away from workbench borders without changing panel positioning. */
+html[data-wxm-ink] :is(.room_desc,.fb-right,.task-desc,.WG_item_popup_desc) { box-sizing:border-box; line-height:1.65; }
+html[data-wxm-ink] .room_desc { padding:10px 12px; }
+html[data-wxm-ink] .fb-right { padding:12px 14px; }
+html[data-wxm-ink] .task-desc { padding:6px 0; }
+html[data-wxm-ink] .WG_item_popup_desc { padding:10px 12px; }
+html[data-wxm-ink] .jh-goto-grid { gap:10px 12px; margin:12px 0; }
+html[data-wxm-ink] .jh-goto-grid .action-desc { padding:10px 12px; line-height:1.6; }
+html[data-wxm-ink] .jh-goto-grid .action-name { padding:8px 12px; }
+
+html[data-wxm-ink] .WG_quick_loadouts { border-top:0; }

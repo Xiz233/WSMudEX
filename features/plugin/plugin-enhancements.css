@@ -983,9 +983,10 @@ body.WG_resizing_rails * {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.35em;
-    margin-top: 1em;
-    padding-top: 0.5em;
-    border-top: 1px solid #343434;
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-top: 0;
+    border-top: 0;
 }
 .WG_quick_loadout {
     min-width: 0;
@@ -2631,4 +2632,27 @@ white-space: pre-line;
 /* Keep native animation timers from hiding an explicitly opened overlay menu. */
 html:not(.WG_feature_horizontalMenu_off) .bottom-bar > .right-bar.WG_horizontal_menu_open > .tool-item {
     display:block !important; opacity:1 !important;
+}
+
+/* Preset rows share the same proportions; labels sit directly above controls. */
+.WG_quick_skill_loadouts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.35em; }
+.WG_quick_loadout,.WG_quick_skill_loadout { box-sizing:border-box; height:2.3em; padding:0 .4em; font-size:.85em; line-height:1.3; }
+.WG_preset_label { margin:10px 0 6px; line-height:1.5; }
+.WG_plugin_role_storage { margin:0; padding:10px 16px; }
+
+/* Only visual UI effects: never animate combat timers, resource widths or layout. */
+@keyframes WG_ui_fade { from { opacity:0; } to { opacity:1; } }
+@media (prefers-reduced-motion:no-preference) {
+  html:not(.WG_feature_uiMotion_off) :is(.WG_quick_loadout,.WG_quick_skill_loadout,.WG_plugin_settings_button,.action-name[cmd]) {
+    transition:background-color 140ms ease-out,color 140ms ease-out,border-color 140ms ease-out;
+  }
+  html:not(.WG_feature_uiMotion_off) :is(.WG_plugin_settings:not([hidden])>.WG_plugin_settings_dialog,.WG_equipment_picker:not([hidden])>.WG_equipment_picker_dialog) {
+    animation:WG_ui_fade 140ms ease-out;
+  }
+}
+html.WG_feature_uiMotion_off :is(.WG_quick_loadout,.WG_quick_skill_loadout,.WG_plugin_settings_button,.action-name[cmd],.WG_plugin_settings_dialog,.WG_equipment_picker_dialog) {
+  transition:none !important; animation:none !important;
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.WG_quick_loadout,.WG_quick_skill_loadout,.WG_plugin_settings_button,.action-name[cmd],.WG_plugin_settings_dialog,.WG_equipment_picker_dialog) { transition:none !important; animation:none !important; }
 }

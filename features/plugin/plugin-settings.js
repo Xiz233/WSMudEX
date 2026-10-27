@@ -11,6 +11,7 @@
             <span class="WG_plugin_settings_title" id="WG_plugin_settings_title">插件设置</span>
             <button class="WG_plugin_settings_close" type="button" aria-label="关闭插件设置">×</button>
           </header>
+          <p class="WG_plugin_role_storage WG_plugin_settings_desc" role="status"></p>
           <div class="WG_plugin_settings_body">
             <div class="WG_plugin_settings_column">
               <section class="WG_plugin_settings_section">
@@ -100,7 +101,18 @@
 
     Object.assign(WG, {
       pluginFeatureFlagsKey: "WG_plugin_feature_flags_v1",
+      pluginSettingsRoleId: null,
+      getPluginFeatureFlagsKey: function () {
+        var id = WG.pluginSettingsRoleId ?? (legacy.getRoleId && legacy.getRoleId()) ?? G.id;
+        return id == null || id === "" ? WG.pluginFeatureFlagsKey :
+          WG.pluginFeatureFlagsKey + ":role:" + encodeURIComponent(String(id));
+      },
       pluginFeatureDefinitions: [
+        {
+          id: "uiMotion",
+          name: "界面动效",
+          desc: "面板轻微淡入、按钮颜色过渡；关闭后即时切换。遵循系统减少动态效果设置。",
+        },
         {
           id: "autoFirstRoundOrder",
           name: "首轮出招顺序",
@@ -149,9 +161,17 @@
       ],
       getPluginFeatureFlags: function () {
         try {
-          return JSON.parse(
-            window.localStorage.getItem(WG.pluginFeatureFlagsKey) || "{}",
-          );
+          var key = WG.getPluginFeatureFlagsKey();
+          var raw = window.localStorage.getItem(key);
+          if (raw == null && key !== WG.pluginFeatureFlagsKey) {
+            raw = window.localStorage.getItem(WG.pluginFeatureFlagsKey) || "{}";
+            window.localStorage.setItem(key, raw);
+          }
+          var saved = JSON.parse(raw || "{}"), flags = {};
+          if (saved && typeof saved === "object" && !Array.isArray(saved))
+            for (var name of [...WG.pluginFeatureDefinitions.map(item => item.id), "autoAttackTeamMsg"])
+              if (typeof saved[name] === "boolean") flags[name] = saved[name];
+          return flags;
         } catch (error) {
           return {};
         }
@@ -163,7 +183,7 @@
         var flags = WG.getPluginFeatureFlags();
         flags[feature] = Boolean(enabled);
         window.localStorage.setItem(
-          WG.pluginFeatureFlagsKey,
+          WG.getPluginFeatureFlagsKey(),
           JSON.stringify(flags),
         );
         WG.applyPluginFeatureFlags();
@@ -254,6 +274,7 @@
         }).appendTo(row);
       },
       renderPluginSettings: function () {
+        $(".WG_plugin_role_storage").text("功能开关随当前角色自动保存在本机；恢复默认仅影响当前角色。");
         var autoList = $(".WG_plugin_settings_auto").empty(),
           featureList = $(".WG_plugin_settings_features").empty(),
           loadoutList = $(".WG_plugin_settings_loadouts").empty(),
@@ -647,7 +668,7 @@
         focusTarget && $(focusTarget).trigger("focus");
       },
       resetPluginSettings: function () {
-        window.localStorage.removeItem(WG.pluginFeatureFlagsKey);
+        window.localStorage.setItem(WG.getPluginFeatureFlagsKey(), "{}");
         WG.resetQuickLoadoutNames();
         WG.resetActionLoadoutConfig();
         WG.applyPluginFeatureFlags();
@@ -830,8 +851,20 @@
       },
     });
 
+    var roleTimer = null;
+    var roleHook = WG.add_hook("login", function (event) {
+      WG.pluginSettingsRoleId = event.id;
+      clearTimeout(roleTimer);
+      roleTimer = setTimeout(function () {
+        roleTimer = null;
+        WG.applyPluginFeatureFlags();
+        if ($(".WG_plugin_settings").length) WG.renderPluginSettings();
+      }, 0);
+    });
     return {
       destroy: function () {
+        clearTimeout(roleTimer);
+        WG.remove_hook(roleHook);
         $(document).off("keydown.WG_plugin_settings");
         $(".WG_plugin_settings").off("click.WG_plugin_settings");
         delete window.WGOpenPluginSettings;
