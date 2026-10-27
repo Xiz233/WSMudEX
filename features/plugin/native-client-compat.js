@@ -478,6 +478,7 @@
       header.find('.WG_item_popup_title').html(title);
       const body = $('<div class="WG_item_popup_body"><div class="WG_item_popup_desc"></div><div class="WG_item_popup_actions"></div></div>').appendTo(child);
       body.find('.WG_item_popup_desc').html(host.WSMudDetailPopupPolicy.stripRepeatedDetailTitle(data.desc, title, (html) => $('<span>').html(html).text()));
+      if (owner || (request && (request.kind === 'skill' || request.textType === 'skill-help'))) body.find('.WG_item_popup_desc').addClass('wxm-skill-description');
       const footer = body.find('.WG_item_popup_actions');
       if (!owner) {
         const actions = Array.isArray(data.commands) ? data.commands.slice() : [];
@@ -591,7 +592,7 @@
       if (request && request.kind === 'text-detail') {
         const classification = host.WSMudDetailPopupPolicy.classifyDetailText(message);
         if (classification !== 'ignore') pending = null;
-        if (classification === 'accept') open({ desc: message }, null);
+        if (classification === 'accept') open({ desc: message }, null, request);
       }
       return originalPush.apply(this, arguments);
     };

@@ -16,8 +16,10 @@
       attrs.forEach(name=>root.removeAttribute(name));
       props.forEach(name=>root.style.removeProperty(name));
       WXMInkCommands.stop();
+      WXMInkSkillValues.stop();
       return;
     }
+    WXMInkSkillValues.start();
     root.setAttribute('data-wxm-ink',s.theme);
     root.setAttribute('data-wxm-density',s.density);
     root.setAttribute('data-wxm-colors',String(s.colors));

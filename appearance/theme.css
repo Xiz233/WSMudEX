@@ -150,3 +150,14 @@ html[data-wxm-ink] .dialog-fb :is(.jh-family-tab,.jh-plane-tab).selected {
   background:var(--wxm-tint); color:var(--wxm-selected); border-color:var(--wxm-focus);
 }
 html[data-wxm-ink] .dialog-fb :is(.jh-family-tab,.jh-plane-tab):hover { background:var(--wxm-tint); border-color:var(--wxm-focus); }
+
+/* Numeric accents remain readable in every workbench palette. */
+html[data-wxm-ink] :is(.dialog-skills > pre, .dialog-master > pre, .wxm-skill-description) .wxm-skill-value {
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+html[data-wxm-ink] :is(.dialog-skills > pre, .dialog-master > pre, .wxm-skill-description) .wxm-skill-number { color:var(--wxm-blue) !important; }
+html[data-wxm-ink] :is(.dialog-skills > pre, .dialog-master > pre, .wxm-skill-description) .wxm-skill-bonus { color:var(--wxm-green) !important; }
+html[data-wxm-ink] :is(.dialog-skills > pre, .dialog-master > pre, .wxm-skill-description) .wxm-skill-cost { color:var(--wxm-orange) !important; }
+html[data-wxm-ink] :is(.dialog-skills > pre, .dialog-master > pre, .wxm-skill-description) .wxm-skill-time { color:var(--wxm-purple) !important; }
+
